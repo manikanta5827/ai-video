@@ -25,7 +25,7 @@ app.get('/api/health', (req, res) => {
 // Get summary from Groq
 // Upload video and process it
 app.post('/api/process-video', upload.single('video'), async (req, res) => {
-  // console.log('object');
+  console.log('object');
   const startTime = Date.now();
   const videoPath = req.file.path;
 

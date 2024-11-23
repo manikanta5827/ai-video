@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function App() {
+
   const [videoFile, setVideoFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [summary, setSummary] = useState('');
@@ -25,9 +26,10 @@ function App() {
     const formData = new FormData();
     formData.append('video', videoFile);
 
+    const apibase = process.env.REACT_APP_BACKEND_URL;
     try {
       const response = await axios.post(
-        'http://localhost:4000/api/process-video',
+        `${apibase}/api/process-video`,
         formData,
         {
           headers: {
