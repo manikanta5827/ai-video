@@ -17,6 +17,12 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 
+//health check
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
+// Get summary from Groq
 // Upload video and process it
 app.post('/api/process-video', upload.single('video'), async (req, res) => {
   // console.log('object');
